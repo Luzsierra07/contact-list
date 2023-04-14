@@ -31,16 +31,21 @@ function agregarContacto (
     nombre,
     apellido,
     telefono,
-    dirección,
-    ciudad
+    ubicaciones= [
+        dirección,
+        ciudad
+    ]      
 ){ ListaContactos.push({
         id: id,
         nombre: nombre,
         apellido: apellido,
         telefono: telefono,
-        dirección: dirección,
-        ciudad: ciudad
+        ubicaciones:{
+            dirección: dirección,
+            ciudad: ciudad
+    }
 })        
+        
 }
 //función para borrar un contacto de la lista
 function borrarContacto (id){
