@@ -31,22 +31,18 @@ function agregarContacto (
     nombre,
     apellido,
     telefono,
-    ubicaciones= [
-        dirección,
-        ciudad
-    ]      
-){ ListaContactos.push({
+    ubicaciones,
+){  const {dirección, ciudad} = ubicaciones; 
+    ListaContactos.push({
         id: id,
         nombre: nombre,
         apellido: apellido,
         telefono: telefono,
-        ubicaciones:{
-            dirección: dirección,
-            ciudad: ciudad
+        ubicaciones : { dirección, ciudad}
     }
-})        
-        
-}
+)              
+} 
+
 //función para borrar un contacto de la lista
 function borrarContacto (id){
     let indice = ListaContactos.findIndex((contacto)=>contacto.id===id);
@@ -64,9 +60,9 @@ agregarContacto(
     "Elvis",
     "Diaz",
     "3013740259",
-    "calle 22",
-    "Planeta Rica"
-);
+    {dirección:"calle 22", ciudad:"Planeta Rica"},
+)
+ 
 //borrar contacto
 borrarContacto(2);
 //imprimir lista de contactos actualizada
