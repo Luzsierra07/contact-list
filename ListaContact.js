@@ -62,7 +62,28 @@ agregarContacto(
     "3013740259",
     {dirección:"calle 22", ciudad:"Planeta Rica"},
 )
- 
+//Actualizar Contacto
+let ActualizarContacto = (modificacion) => {
+    const { id, nombre, apellido, telefono, dirección, ciudad}= modificacion;
+    let encontrado = ListaContactos.filter(contacto => contacto.id ===id);
+    if (nombre && apellido && telefono && {dirección, ciudad}){
+        encontrado.nombre = nombre;
+        encontrado.apellido = apellido;
+        encontrado.telefono = telefono;
+        encontrado.dirección = dirección;
+        encontrado.ciudad = ciudad
+        console.log("Contacto editado");
+    } else {
+        console.log("id no existe");
+    }
+}
+const contactoEditado = new agregarContacto( 
+    3,
+    "Elvia",
+    "Cordero",
+    "+34 633035514",
+    {dirección:"calle Perez", ciudad:"España"}, )
+ActualizarContacto(contactoEditado)
 //borrar contacto
 borrarContacto(2);
 //imprimir lista de contactos actualizada
